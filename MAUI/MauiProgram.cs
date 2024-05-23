@@ -1,4 +1,6 @@
-﻿namespace MAUI
+﻿using Microsoft.Extensions.Logging;
+
+namespace MAUI
 {
     public static class MauiProgram
     {
@@ -16,10 +18,8 @@
 
             builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5256") });
 
-
             builder.Services.AddSingleton<APIHostedService>();
             builder.Services.AddHostedService<APIHostedService>(provider => provider.GetService<APIHostedService>());
-
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
