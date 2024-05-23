@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -10,9 +11,11 @@ public class APIHostedService : IHostedService
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
+        var builder = WebApplication.CreateBuilder();
+
         _webHost = WebHost.CreateDefaultBuilder()
             .UseStartup<PrintSettingsAPI.Startup>()
-            .UseUrls("http://localhost:5256")
+            .UseUrls("https://localhost:5256")
             .Build();
 
         return _webHost.StartAsync(cancellationToken);

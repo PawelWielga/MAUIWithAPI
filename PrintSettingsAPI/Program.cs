@@ -8,6 +8,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
+
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -20,13 +21,6 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
-        app.UseCors(builder => builder
-            .WithOrigins("https://0.0.0.0")
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            );
-
 
         app.UseAuthorization();
 

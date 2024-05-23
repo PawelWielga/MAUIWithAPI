@@ -16,6 +16,12 @@ public class Startup
 
         app.UseRouting();
 
+        app.UseCors(builder => builder
+            .WithOrigins("https://0.0.0.0")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            );
+
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
